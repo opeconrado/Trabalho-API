@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890",
+    "name": "Loja Franca API",
+    "description": "Coleção Postman para API de Produtos - Loja Franca",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST Cadastrar Produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Notebook Dell\",\n  \"descricao\": \"Core i7, 16GB RAM\",\n  \"cor\": \"Prata\",\n  \"peso\": 1.5,\n  \"tipo\": \"Eletrônico\",\n  \"preco\": 4500.99\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/produtos",
+          "host": ["{{base_url}}"],
+          "path": ["produtos"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Listar Produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/produtos",
+          "host": ["{{base_url}}"],
+          "path": ["produtos"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Buscar Produto por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/produtos/{{produto_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["produtos", "{{produto_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT Atualizar Produto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"preco\": 3999.90\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/produtos/{{produto_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["produtos", "{{produto_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Remover Produto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/produtos/{{produto_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["produtos", "{{produto_id}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api",
+      "description": "URL base da API (local ou produção)"
+    },
+    {
+      "key": "produto_id",
+      "value": "",
+      "description": "ID do produto (preenchido automaticamente após POST)"
+    }
+  ],
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          "// Captura o ID do produto após cadastro",
+          "if (pm.response.code === 201) {",
+          "    const response = pm.response.json();",
+          "    pm.collectionVariables.set(\"produto_id\", response._id);",
+          "    pm.test(\"Produto cadastrado\", function () {",
+          "        pm.existe(response._id).to.be.a(\"string\");",
+          "    });",
+          "}"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ]
+}
