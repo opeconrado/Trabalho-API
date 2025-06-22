@@ -7,7 +7,7 @@ const options = {
     info: {
       title: 'API Loja Franca - CRUD de Produtos',
       version: '1.0.0',
-      description: 'Documentação completa para o trabalho de Back-End',
+      description: 'Documentação completa',
     },
     servers: [
       { url: 'http://localhost:3000/api', description: 'Servidor local' },

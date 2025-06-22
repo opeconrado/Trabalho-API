@@ -4,7 +4,7 @@
   "description": "API para CRUD de produtos - Loja Franca",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm start",
     "dev": "nodemon index.js",
     "swagger": "node ./swagger/swaggerConfig.js"
   },
