@@ -3,7 +3,7 @@ const swaggerUi = require('swagger-ui-express');
 
 const options = {
   definition: {
-    openapi: '3.0.0',
+    openapi: '3.1.1',
     info: {
       title: 'API Loja Franca - CRUD de Produtos',
       version: '1.0.0',
