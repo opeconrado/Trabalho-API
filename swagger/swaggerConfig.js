@@ -10,8 +10,8 @@ const options = {
       description: 'Documentação completa',
     },
     servers: [
-      { url: 'http://localhost:3000/api', description: 'Servidor local' },
-      { url: 'https://sua-api.onrender.com/api', description: 'Produção' }
+      { url: 'https://trabalho-api-1.onrender.com/api-docs/', description: 'Documentação' },
+      { url: 'https://trabalho-api-1.onrender.com', description: 'Produção' }
     ],
     components: {
       schemas: {
