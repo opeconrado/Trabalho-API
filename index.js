@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const produtoRoutes = require('./routes/produtoRoutes');
 const setupSwagger = require('./swagger/swaggerConfig');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 
